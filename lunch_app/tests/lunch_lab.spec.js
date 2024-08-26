@@ -16,12 +16,17 @@ test.describe("Lunch page tests", () => {
 
   });
 
-  test("Verify search feature when no data", async () => {
+  test("Try to add a lunch as an admin", async () => {
     
-    //await loginPage.haveAdmin();
+    await loginPage.isAdmin();
     await mainPage.gotoEdit();
-    //expect(this.page).toHaveTitle("Lunch App");
-    //await mainPage.toHaveAdmin();
-    //await mainPage.gotoSettings();
+
   });
+
+  test("Verify add the dish", async () => {
+    let dishName = 'Blynai';
+    await mainPage.addDishToCart(dishName);
+    let isInCart = await mainPage.isDishInCart(dishName);
+    expect(isInCart).toBe(true);
+  })
 })

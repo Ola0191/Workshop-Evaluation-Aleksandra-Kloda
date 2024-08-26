@@ -6,7 +6,6 @@ export class LoginPage {
         this.page = page;
         this.loginField = page.locator('input[name="email"]');
         this.passwordField = page.locator('input[name="password"]');
-
       }
 
       async goto() {
@@ -19,14 +18,15 @@ export class LoginPage {
         //await this.loginField.fill("piotr.kosacz@sft.com");
         //await this.passwordField.fill("student338");
         await this.page.locator(".v-btn__content").click();
-        //await expect(this.page.locator('.v-btn__content')).click();
-        //await expect(this.page.locator('.v-subheader theme--dark')).toHaveText('Admin 7');
-      
       }
 
-      async haveAdmin() {
-        //await expect(this.page).toHaveTitle("Lunch App");
+      async isAdmin() {
         await this.page.locator('.v-subheader.theme--dark').waitFor();
         await expect(this.page.locator('.v-subheader.theme--dark')).toHaveText('Admin 7');
+      }
+      
+      async isUser() {
+        await this.page.locator('.v-subheader.theme--dark').waitFor();
+        await expect(this.page.locator('.v-subheader.theme--dark')).toHaveText('Piotr Kosacz');
       }
 }
