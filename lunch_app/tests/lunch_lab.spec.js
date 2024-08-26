@@ -18,7 +18,8 @@ test.describe("Lunch page tests", () => {
 
   test("Verify search feature when no data", async () => {
     
-    await loginPage.haveAdmin();
+    //await loginPage.haveAdmin();
+    await mainPage.gotoEdit();
     //expect(this.page).toHaveTitle("Lunch App");
     //await mainPage.toHaveAdmin();
     //await mainPage.gotoSettings();
