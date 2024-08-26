@@ -23,4 +23,10 @@ export class LoginPage {
         //await expect(this.page.locator('.v-subheader theme--dark')).toHaveText('Admin 7');
       
       }
+
+      async haveAdmin() {
+        //await expect(this.page).toHaveTitle("Lunch App");
+        await this.page.locator('.v-subheader.theme--dark').waitFor();
+        await expect(this.page.locator('.v-subheader.theme--dark')).toHaveText('Admin 7');
+      }
 }
